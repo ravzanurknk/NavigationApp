@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 
@@ -23,20 +25,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val options = navOptions {
-            anim {
-                enter = R.anim.nav_default_enter_anim
-                exit = R.anim.nav_default_pop_exit_anim
-                popEnter = R.anim.nav_default_pop_enter_anim
-                popExit = R.anim.nav_default_pop_exit_anim
-            }
-        }
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) {
-        }
+         view.findViewById<TextView>(R.id.tvGoToGlobalAction).setOnClickListener {
+             findNavController().navigate(R.id.action_global_navigation)
+         }
     }
 }
