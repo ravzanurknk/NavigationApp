@@ -3,6 +3,7 @@ package com.example.navigationapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -22,25 +23,7 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.nav_host_fragment)
         bottomNavView.setupWithNavController(navController)
 
-
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home,
-                R.id.navigation_search
-            )
-        )
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                navController.navigateUp()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
+        setupActionBarWithNavController(navController)
     }
 
     override fun onBackPressed() {
